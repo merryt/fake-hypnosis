@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>press the button</title>
+    </head>
+    <body>
+        <button onclick="update()">Test</button>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+            const update = function () {
+                socket.emit("update", {
+                    "here": "is",
+                    "some": "info"
+                })
+            }
+            socket.on("broadcast", function(body){
+                console.log(body)
+            })
+
+        </script>
+    </body>
+</html>
